@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ShoeAR | Realidad Aumentada</title>
+
+    <!-- MODEL VIEWER -->
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+    </script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 20px 8%;
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #ccc;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        model-viewer {
+
+            width: 100%;
+            max-width: 1000px;
+            height: 550px;
+
+            margin: 0 auto;
+
+            background: #f1f1f1;
+
+            border-radius: 20px;
+
+            --poster-color: #f1f1f1;
+        }
+
+        .ar-button {
+
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            bottom: 25px;
+
+            background: white;
+
+            color: #111;
+
+            border: none;
+
+            padding: 18px 30px;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .instructions {
+
+            margin: 30px auto 0;
+
+            max-width: 600px;
+
+            color: #ccc;
+
+            line-height: 1.6;
+        }
+
+        footer {
+
+            background: #000;
+
+            color: #888;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        @media(max-width: 700px) {
+
+            h1 {
+                font-size: 32px;
+            }
+
+            model-viewer {
+                height: 65vh;
+                min-height: 450px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <div class="logo">
+            SHOEAR
+        </div>
+
+        <a href="index.html" class="back">
+            ← Volver a la tienda
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <h1>
+            👟 Prueba el Urban X1
+        </h1>
+
+
+        <p class="description">
+
+            Explora el modelo 3D y utiliza realidad aumentada
+            para colocar el zapato en tu espacio.
+
+        </p>
+
+
+        <model-viewer
+
+            src="trainer.glb"
+
+            alt="Zapato Urban X1 en realidad aumentada"
+
+            camera-controls
+
+            auto-rotate
+
+            shadow-intensity="1"
+
+            exposure="1"
+
+            ar
+
+            ar-modes="webxr scene-viewer quick-look"
+
+            ar-placement="floor"
+
+            touch-action="pan-y"
+
+            environment-image="neutral">
+
+
+            <button
+                slot="ar-button"
+                class="ar-button">
+
+                📷 Ver en mi espacio
+
+            </button>
+
+
+        </model-viewer>
+
+
+        <p class="instructions">
+
+            <strong>En celular:</strong>
+            pulsa “Ver en mi espacio”, permite el acceso
+            necesario y apunta la cámara hacia el piso para
+            colocar el zapato.
+
+        </p>
+
+    </main>
+
+
+    <footer>
+
+        © 2026 ShoeAR — Experiencia WebAR
+
+    </footer>
+
+
+</body>
+
+</html>
