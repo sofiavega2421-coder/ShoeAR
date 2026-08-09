@@ -282,7 +282,6 @@
 
         }
 
-
         model-viewer {
 
             width: 100%;
@@ -379,6 +378,81 @@
 
 
         /* =========================
+           QR
+        ========================= */
+
+        .qr-section {
+
+            background: #f5f5f5;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+        }
+
+        .qr-section h2 {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .qr-section .qr-description {
+
+            color: #555;
+
+            max-width: 600px;
+
+            margin: 0 auto 30px auto;
+
+            line-height: 1.5;
+
+        }
+
+        .qr-image {
+
+            width: 230px;
+
+            height: 230px;
+
+            object-fit: contain;
+
+            background: white;
+
+            padding: 15px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+
+        }
+
+        .qr-instruction {
+
+            margin-top: 25px;
+
+            color: #555;
+
+            font-size: 16px;
+
+        }
+
+        .qr-url {
+
+            margin-top: 15px;
+
+            font-size: 13px;
+
+            color: #777;
+
+            word-break: break-all;
+
+        }
+
+
+        /* =========================
            INFORMACIÓN
         ========================= */
 
@@ -470,6 +544,14 @@
 
             }
 
+            .qr-image {
+
+                width: 210px;
+
+                height: 210px;
+
+            }
+
         }
 
     </style>
@@ -509,6 +591,10 @@
 
             <a href="#ar">
                 Realidad Aumentada
+            </a>
+
+            <a href="#qr">
+                QR
             </a>
 
         </nav>
@@ -764,7 +850,7 @@
 
 
     <!-- =========================
-         SECCIÓN EXPLICATIVA AR
+         SECCIÓN AR
     ========================= -->
 
     <section class="ar-section" id="ar">
@@ -794,6 +880,60 @@
             👟 Ver modelo 3D
 
         </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         QR
+    ========================= -->
+
+    <section class="qr-section" id="qr">
+
+
+        <h2>
+
+            📱 Prueba ShoeAR
+
+        </h2>
+
+
+        <p class="qr-description">
+
+            Escanea el código QR con tu celular para abrir
+            nuestra experiencia WebAR y probar el Urban X1
+            en tu espacio.
+
+        </p>
+
+
+        <img
+
+            src="ShoeAR_QR.png"
+
+            alt="Código QR para abrir ShoeAR"
+
+            class="qr-image"
+
+        >
+
+
+        <p class="qr-instruction">
+
+            Después de escanearlo, pulsa
+            <strong>“Ver en mi espacio”</strong>
+            para activar la realidad aumentada.
+
+        </p>
+
+
+        <p class="qr-url">
+
+            https://sofiavega2421-coder.github.io/ShoeAR/
+
+        </p>
 
 
     </section>
