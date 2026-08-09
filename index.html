@@ -17,10 +17,6 @@
 
     <style>
 
-        /* =========================
-           CONFIGURACIÓN GENERAL
-        ========================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -242,7 +238,7 @@
 
 
         /* =========================
-           BOTÓN AR
+           BOTÓN REALIDAD AUMENTADA
         ========================= */
 
         .ar-button {
@@ -340,9 +336,11 @@
         }
 
         .qr-image {
-            width: 230px;
+            display: block;
 
-            height: 230px;
+            width: 250px;
+
+            height: 250px;
 
             object-fit: contain;
 
@@ -352,7 +350,9 @@
 
             border-radius: 15px;
 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+            margin: 0 auto;
         }
 
         .qr-instruction {
@@ -449,9 +449,9 @@
             }
 
             .qr-image {
-                width: 210px;
+                width: 220px;
 
-                height: 210px;
+                height: 220px;
             }
 
         }
@@ -527,14 +527,18 @@
 
 
             <a href="#productos" class="button">
+
                 Ver catálogo
+
             </a>
 
         </div>
 
 
         <div class="hero-shoe">
+
             👟
+
         </div>
 
 
@@ -550,7 +554,9 @@
 
 
         <h2>
+
             Nuestros zapatos
+
         </h2>
 
 
@@ -574,7 +580,9 @@
                 </p>
 
                 <a href="#modelo" class="button">
+
                     Ver producto
+
                 </a>
 
             </div>
@@ -598,7 +606,9 @@
                 </p>
 
                 <a href="#modelo" class="button">
+
                     Ver producto
+
                 </a>
 
             </div>
@@ -622,7 +632,9 @@
                 </p>
 
                 <a href="#modelo" class="button">
+
                     Ver producto
+
                 </a>
 
             </div>
@@ -635,20 +647,24 @@
 
 
     <!-- =========================
-         MODELO 3D + AR
+         MODELO 3D
     ========================= -->
 
     <section class="model-section" id="modelo">
 
 
         <h2>
+
             Urban X1 en 3D
+
         </h2>
 
 
         <p>
+
             Gira, acerca y explora el zapato desde todos
             los ángulos.
+
         </p>
 
 
@@ -680,7 +696,9 @@
 
 
             <button
+
                 slot="ar-button"
+
                 class="ar-button">
 
                 👀 Ver en mi espacio
@@ -696,14 +714,16 @@
 
 
     <!-- =========================
-         SECCIÓN AR
+         REALIDAD AUMENTADA
     ========================= -->
 
     <section class="ar-section" id="ar">
 
 
         <h2>
+
             Pruébalos en tu espacio
+
         </h2>
 
 
@@ -738,7 +758,9 @@
 
 
         <h2>
+
             📱 Experiencia WebAR
+
         </h2>
 
 
@@ -751,9 +773,15 @@
         </p>
 
 
+        <!--
+            IMPORTANTE:
+            Este es el QR NUEVO.
+            Debe existir en la misma carpeta que index.html.
+        -->
+
         <img
 
-            src="ShoeAR_QR.png"
+            src="ShoeAR_AR_QR.png"
 
             alt="Código QR para abrir la experiencia WebAR"
 
@@ -764,8 +792,10 @@
 
         <p class="qr-instruction">
 
-            <strong>Escanea → abre la experiencia →
-            pulsa “Ver en mi espacio”</strong>
+            <strong>
+                Escanea → abre la experiencia →
+                pulsa “Ver en mi espacio”
+            </strong>
 
         </p>
 
@@ -789,7 +819,9 @@
 
 
         <h2>
+
             ¿Por qué ShoeAR?
+
         </h2>
 
 
