@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShoeAR | Tienda de zapatos</title>
+
+    <!-- MODEL VIEWER -->
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+    </script>
+
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+
+            background: #111;
+
+            color: white;
+
+            padding: 20px 8%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+        }
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 30px;
+
+        }
+
+        nav a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 500px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 60px 8%;
+
+            background: white;
+
+        }
+
+        .hero-text {
+
+            max-width: 550px;
+
+        }
+
+        .hero h1 {
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .hero p {
+
+            font-size: 20px;
+
+            color: #555;
+
+            margin-bottom: 30px;
+
+            line-height: 1.5;
+
+        }
+
+        .hero-shoe {
+
+            font-size: 180px;
+
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .button {
+
+            display: inline-block;
+
+            padding: 15px 25px;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            border: none;
+
+            font-weight: bold;
+
+        }
+
+        .button:hover {
+
+            background: #333;
+
+        }
+
+
+        /* =========================
+           PRODUCTOS
+        ========================= */
+
+        .products {
+
+            padding: 70px 8%;
+
+        }
+
+        .products h2 {
+
+            text-align: center;
+
+            font-size: 35px;
+
+            margin-bottom: 40px;
+
+        }
+
+        .product-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+
+        }
+
+        .product {
+
+            background: white;
+
+            width: 300px;
+
+            padding: 25px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+        }
+
+        .product-image {
+
+            height: 180px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 100px;
+
+            background: #f1f1f1;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .product h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+
+        }
+
+        .price {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =========================
+           MODELO 3D
+        ========================= */
+
+        .model-section {
+
+            background: white;
+
+            padding: 70px 8%;
+
+            text-align: center;
+
+        }
+
+        .model-section h2 {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+
+        }
+
+        .model-section p {
+
+            color: #555;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        model-viewer {
+
+            width: 100%;
+
+            height: 500px;
+
+            background: #f1f1f1;
+
+            border-radius: 20px;
+
+            --poster-color: #f1f1f1;
+
+        }
+
+
+        /* =========================
+           BOTÓN AR
+        ========================= */
+
+        .ar-button {
+
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            bottom: 20px;
+
+            background: white;
+
+            color: #111;
+
+            border: none;
+
+            padding: 15px 25px;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+
+        }
+
+        .ar-button:hover {
+
+            background: #eee;
+
+        }
+
+
+        /* =========================
+           SECCIÓN AR
+        ========================= */
+
+        .ar-section {
+
+            background: #111;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+        }
+
+        .ar-section h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .ar-section p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            margin-bottom: 30px;
+
+            color: #ccc;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================
+           INFORMACIÓN
+        ========================= */
+
+        .info {
+
+            padding: 60px 8%;
+
+            background: white;
+
+            text-align: center;
+
+        }
+
+        .info h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .info p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #555;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px;
+
+            background: #000;
+
+            color: #aaa;
+
+        }
+
+
+        /* =========================
+           CELULARES
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .hero {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 40px;
+
+            }
+
+            .hero h1 {
+
+                font-size: 40px;
+
+            }
+
+            .hero-shoe {
+
+                font-size: 120px;
+
+            }
+
+            nav {
+
+                display: none;
+
+            }
+
+            model-viewer {
+
+                height: 400px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+
+            SHOEAR
+
+        </div>
+
+
+        <nav>
+
+            <a href="#inicio">
+                Inicio
+            </a>
+
+            <a href="#productos">
+                Catálogo
+            </a>
+
+            <a href="#modelo">
+                Modelo 3D
+            </a>
+
+            <a href="#ar">
+                Realidad Aumentada
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="inicio">
+
+
+        <div class="hero-text">
+
+            <h1>
+
+                Encuentra tu próximo par.
+
+            </h1>
+
+
+            <p>
+
+                Descubre nuestros zapatos y
+                visualízalos en tu espacio utilizando
+                realidad aumentada.
+
+            </p>
+
+
+            <a href="#productos" class="button">
+
+                Ver catálogo
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-shoe">
+
+            👟
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         PRODUCTOS
+    ========================= -->
+
+    <section class="products" id="productos">
+
+
+        <h2>
+
+            Nuestros zapatos
+
+        </h2>
+
+
+        <div class="product-container">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="product">
+
+
+                <div class="product-image">
+
+                    👟
+
+                </div>
+
+
+                <h3>
+
+                    Urban X1
+
+                </h3>
+
+
+                <p class="price">
+
+                    $289.900
+
+                </p>
+
+
+                <a href="#modelo" class="button">
+
+                    Ver producto
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="product">
+
+
+                <div class="product-image">
+
+                    👞
+
+                </div>
+
+
+                <h3>
+
+                    Street Pro
+
+                </h3>
+
+
+                <p class="price">
+
+                    $349.900
+
+                </p>
+
+
+                <a href="#modelo" class="button">
+
+                    Ver producto
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="product">
+
+
+                <div class="product-image">
+
+                    👟
+
+                </div>
+
+
+                <h3>
+
+                    Air Runner
+
+                </h3>
+
+
+                <p class="price">
+
+                    $399.900
+
+                </p>
+
+
+                <a href="#modelo" class="button">
+
+                    Ver producto
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         MODELO 3D + AR
+    ========================= -->
+
+    <section class="model-section" id="modelo">
+
+
+        <h2>
+
+            Urban X1 en 3D
+
+        </h2>
+
+
+        <p>
+
+            Gira, acerca y explora el zapato desde todos
+            los ángulos.
+
+        </p>
+
+
+        <model-viewer
+
+            id="shoe-model"
+
+            src="modelos/trainer.glb"
+
+            alt="Zapato Urban X1 en 3D"
+
+            camera-controls
+
+            auto-rotate
+
+            shadow-intensity="1"
+
+            exposure="1"
+
+            ar
+
+            ar-modes="webxr scene-viewer quick-look"
+
+            ar-placement="floor"
+
+            touch-action="pan-y"
+
+            environment-image="neutral">
+
+
+            <!-- BOTÓN OFICIAL DE REALIDAD AUMENTADA -->
+
+            <button
+                slot="ar-button"
+                class="ar-button">
+
+                👀 Ver en mi espacio
+
+            </button>
+
+
+        </model-viewer>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         SECCIÓN EXPLICATIVA AR
+    ========================= -->
+
+    <section class="ar-section" id="ar">
+
+
+        <h2>
+
+            Pruébalos en tu espacio
+
+        </h2>
+
+
+        <p>
+
+            Con ShoeAR puedes visualizar nuestro Urban X1
+            en realidad aumentada utilizando la cámara
+            de tu celular.
+
+            Coloca el zapato virtualmente sobre el piso
+            y explora cómo se vería en tu espacio.
+
+        </p>
+
+
+        <a href="#modelo" class="button">
+
+            👟 Ver modelo 3D
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         INFORMACIÓN
+    ========================= -->
+
+    <section class="info">
+
+
+        <h2>
+
+            ¿Por qué ShoeAR?
+
+        </h2>
+
+
+        <p>
+
+            ShoeAR combina comercio electrónico y
+            realidad aumentada para ofrecer una nueva
+            forma de explorar productos.
+
+            Antes de comprar, nuestros clientes pueden
+            visualizar los zapatos en 3D y posteriormente
+            probarlos mediante realidad aumentada.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 ShoeAR — Tienda virtual de zapatos
+
+    </footer>
+
+
+</body>
+
+</html>
